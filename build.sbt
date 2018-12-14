@@ -3,7 +3,7 @@ import ReleaseTransformations._
 
 name := "metral"
 
-organization := "org.jmotor.metral"
+organization := "com.growingio.metral"
 
 scalaVersion := Versions.scala210
 
