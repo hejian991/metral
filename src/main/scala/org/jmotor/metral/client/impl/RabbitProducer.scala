@@ -3,7 +3,7 @@ package org.jmotor.metral.client.impl
 import java.util.concurrent.Callable
 
 import com.google.common.cache.{ Cache, CacheBuilder }
-import com.google.protobuf.AbstractMessage
+import com.github.os72.protobuf360.AbstractMessage
 import com.rabbitmq.client.AMQP.{ BasicProperties, Exchange }
 import com.rabbitmq.client.BuiltinExchangeType
 import com.typesafe.config.Config
