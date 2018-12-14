@@ -16,11 +16,11 @@ object Publish extends AutoPlugin {
     },
     credentials += Credentials(Path.userHome / ".sbt" / ".credentials"),
     publishTo := {
-      val nexus = "https://oss.sonatype.org/"
+      val nexus = "http://10.0.1.190:8081/nexus/"
       if (isSnapshot.value) {
         Some("snapshots" at nexus + "content/repositories/snapshots")
       } else {
-        Some("releases" at nexus + "service/local/staging/deploy/maven2")
+        Some("releases" at nexus + "content/repositories/releases")
       }
     },
     pomExtra :=

@@ -2,7 +2,7 @@ package org.jmotor.metral.client
 
 import java.io.Closeable
 
-import com.google.protobuf.AbstractMessage
+import com.github.os72.protobuf360.AbstractMessage
 import org.jmotor.metral.client.ExchangeType.ExchangeType
 
 /**

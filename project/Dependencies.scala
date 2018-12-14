@@ -20,6 +20,7 @@ object Dependencies {
     val amqpClient = "com.rabbitmq" % "amqp-client" % Versions.amqpClient
     val log4j2 = "org.apache.logging.log4j" %% "log4j-api-scala" % Versions.log4j2
     val guice = "com.google.inject" % "guice" % Versions.guice exclude ("com.google.guava", "guava")
+    val protobufShade = "com.github.os72" % "protobuf-java-shaded-360" % "0.9"
   }
 
   object Tests {
@@ -28,6 +29,6 @@ object Dependencies {
 
   import Compiles._
 
-  lazy val dependencies: Seq[ModuleID] = Seq(config, guice, guava, log4j2, amqpClient, Tests.scalaTest)
+  lazy val dependencies: Seq[ModuleID] = Seq(protobufShade, config, guice, guava, log4j2, amqpClient, Tests.scalaTest)
 
 }

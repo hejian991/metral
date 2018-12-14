@@ -5,11 +5,11 @@ name := "metral"
 
 organization := "org.jmotor.metral"
 
-scalaVersion := Versions.scala212
+scalaVersion := Versions.scala210
 
 libraryDependencies ++= dependencies
 
-enablePlugins(ProtocPlugin)
+//enablePlugins(ProtocPlugin)
 
 releaseCrossBuild := true
 
