@@ -4,7 +4,7 @@ import java.util.concurrent.Callable
 
 import com.google.common.cache.{ Cache, CacheBuilder }
 import com.google.common.eventbus.EventBus
-import com.google.protobuf.{ AbstractMessage, AbstractParser }
+import com.github.os72.protobuf360.{ AbstractMessage, AbstractParser }
 import com.rabbitmq.client.AMQP.Queue
 import com.rabbitmq.client.{ AMQP, DefaultConsumer, Envelope }
 import com.typesafe.config.Config
