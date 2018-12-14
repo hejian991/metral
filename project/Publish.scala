@@ -55,3 +55,4 @@ object DontPublish extends AutoPlugin {
     publishLocal := Unit)
 
 }
+
