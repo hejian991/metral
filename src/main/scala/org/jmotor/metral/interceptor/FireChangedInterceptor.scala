@@ -8,7 +8,7 @@ import java.util.function.Consumer
 
 import com.google.common.cache.{ Cache, CacheBuilder }
 import com.google.common.eventbus.EventBus
-import com.google.protobuf.ByteString
+import com.github.os72.protobuf360.ByteString
 import org.aopalliance.intercept.{ MethodInterceptor, MethodInvocation }
 import org.jmotor.metral.annotaion.FireChanged
 import org.jmotor.metral.event.EventSourceBuilder

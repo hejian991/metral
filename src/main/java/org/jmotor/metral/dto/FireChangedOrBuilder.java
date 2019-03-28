@@ -18,14 +18,9 @@ public interface FireChangedOrBuilder extends
       getEntityBytes();
 
   /**
-   * <code>string identity = 2;</code>
+   * <code>bytes identity = 2;</code>
    */
-  java.lang.String getIdentity();
-  /**
-   * <code>string identity = 2;</code>
-   */
-  com.github.os72.protobuf360.ByteString
-      getIdentityBytes();
+  com.github.os72.protobuf360.ByteString getIdentity();
 
   /**
    * <code>.org.jmotor.metral.dto.Operation operation = 3;</code>
@@ -40,4 +35,38 @@ public interface FireChangedOrBuilder extends
    * <code>int64 timestamp = 4;</code>
    */
   long getTimestamp();
+
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+  int getAttributesCount();
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+  boolean containsAttributes(
+      java.lang.String key);
+  /**
+   * Use {@link #getAttributesMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString>
+  getAttributes();
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+  java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString>
+  getAttributesMap();
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  com.github.os72.protobuf360.ByteString getAttributesOrDefault(
+      java.lang.String key,
+      com.github.os72.protobuf360.ByteString defaultValue);
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  com.github.os72.protobuf360.ByteString getAttributesOrThrow(
+      java.lang.String key);
 }

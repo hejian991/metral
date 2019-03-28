@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private FireChanged() {
     entity_ = "";
-    identity_ = "";
+    identity_ = com.github.os72.protobuf360.ByteString.EMPTY;
     operation_ = 0;
     timestamp_ = 0L;
   }
@@ -53,9 +53,8 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
 
-            identity_ = s;
+            identity_ = input.readBytes();
             break;
           }
           case 24: {
@@ -67,6 +66,19 @@ private static final long serialVersionUID = 0L;
           case 32: {
 
             timestamp_ = input.readInt64();
+            break;
+          }
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              attributes_ = com.github.os72.protobuf360.MapField.newMapField(
+                  AttributesDefaultEntryHolder.defaultEntry);
+              mutable_bitField0_ |= 0x00000010;
+            }
+            com.github.os72.protobuf360.MapEntry<java.lang.String, com.github.os72.protobuf360.ByteString>
+            attributes__ = input.readMessage(
+                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            attributes_.getMutableMap().put(
+                attributes__.getKey(), attributes__.getValue());
             break;
           }
           default: {
@@ -93,6 +105,18 @@ private static final long serialVersionUID = 0L;
     return org.jmotor.metral.dto.MetralMessages.internal_static_org_jmotor_metral_dto_FireChanged_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.github.os72.protobuf360.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 5:
+        return internalGetAttributes();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
@@ -101,6 +125,7 @@ private static final long serialVersionUID = 0L;
             org.jmotor.metral.dto.FireChanged.class, org.jmotor.metral.dto.FireChanged.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ENTITY_FIELD_NUMBER = 1;
   private volatile java.lang.Object entity_;
   /**
@@ -136,37 +161,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IDENTITY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object identity_;
+  private com.github.os72.protobuf360.ByteString identity_;
   /**
-   * <code>string identity = 2;</code>
+   * <code>bytes identity = 2;</code>
    */
-  public java.lang.String getIdentity() {
-    java.lang.Object ref = identity_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.github.os72.protobuf360.ByteString bs = 
-          (com.github.os72.protobuf360.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      identity_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string identity = 2;</code>
-   */
-  public com.github.os72.protobuf360.ByteString
-      getIdentityBytes() {
-    java.lang.Object ref = identity_;
-    if (ref instanceof java.lang.String) {
-      com.github.os72.protobuf360.ByteString b = 
-          com.github.os72.protobuf360.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      identity_ = b;
-      return b;
-    } else {
-      return (com.github.os72.protobuf360.ByteString) ref;
-    }
+  public com.github.os72.protobuf360.ByteString getIdentity() {
+    return identity_;
   }
 
   public static final int OPERATION_FIELD_NUMBER = 3;
@@ -195,6 +195,82 @@ private static final long serialVersionUID = 0L;
     return timestamp_;
   }
 
+  public static final int ATTRIBUTES_FIELD_NUMBER = 5;
+  private static final class AttributesDefaultEntryHolder {
+    static final com.github.os72.protobuf360.MapEntry<
+        java.lang.String, com.github.os72.protobuf360.ByteString> defaultEntry =
+            com.github.os72.protobuf360.MapEntry
+            .<java.lang.String, com.github.os72.protobuf360.ByteString>newDefaultInstance(
+                org.jmotor.metral.dto.MetralMessages.internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_descriptor, 
+                com.github.os72.protobuf360.WireFormat.FieldType.STRING,
+                "",
+                com.github.os72.protobuf360.WireFormat.FieldType.BYTES,
+                com.github.os72.protobuf360.ByteString.EMPTY);
+  }
+  private com.github.os72.protobuf360.MapField<
+      java.lang.String, com.github.os72.protobuf360.ByteString> attributes_;
+  private com.github.os72.protobuf360.MapField<java.lang.String, com.github.os72.protobuf360.ByteString>
+  internalGetAttributes() {
+    if (attributes_ == null) {
+      return com.github.os72.protobuf360.MapField.emptyMapField(
+          AttributesDefaultEntryHolder.defaultEntry);
+    }
+    return attributes_;
+  }
+
+  public int getAttributesCount() {
+    return internalGetAttributes().getMap().size();
+  }
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  public boolean containsAttributes(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    return internalGetAttributes().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAttributesMap()} instead.
+   */
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> getAttributes() {
+    return getAttributesMap();
+  }
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  public java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> getAttributesMap() {
+    return internalGetAttributes().getMap();
+  }
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  public com.github.os72.protobuf360.ByteString getAttributesOrDefault(
+      java.lang.String key,
+      com.github.os72.protobuf360.ByteString defaultValue) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> map =
+        internalGetAttributes().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+   */
+
+  public com.github.os72.protobuf360.ByteString getAttributesOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new java.lang.NullPointerException(); }
+    java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> map =
+        internalGetAttributes().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -212,8 +288,8 @@ private static final long serialVersionUID = 0L;
     if (!getEntityBytes().isEmpty()) {
       com.github.os72.protobuf360.GeneratedMessageV3.writeString(output, 1, entity_);
     }
-    if (!getIdentityBytes().isEmpty()) {
-      com.github.os72.protobuf360.GeneratedMessageV3.writeString(output, 2, identity_);
+    if (!identity_.isEmpty()) {
+      output.writeBytes(2, identity_);
     }
     if (operation_ != org.jmotor.metral.dto.Operation.CREATE.getNumber()) {
       output.writeEnum(3, operation_);
@@ -221,6 +297,12 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != 0L) {
       output.writeInt64(4, timestamp_);
     }
+    com.github.os72.protobuf360.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAttributes(),
+        AttributesDefaultEntryHolder.defaultEntry,
+        5);
     unknownFields.writeTo(output);
   }
 
@@ -233,8 +315,9 @@ private static final long serialVersionUID = 0L;
     if (!getEntityBytes().isEmpty()) {
       size += com.github.os72.protobuf360.GeneratedMessageV3.computeStringSize(1, entity_);
     }
-    if (!getIdentityBytes().isEmpty()) {
-      size += com.github.os72.protobuf360.GeneratedMessageV3.computeStringSize(2, identity_);
+    if (!identity_.isEmpty()) {
+      size += com.github.os72.protobuf360.CodedOutputStream
+        .computeBytesSize(2, identity_);
     }
     if (operation_ != org.jmotor.metral.dto.Operation.CREATE.getNumber()) {
       size += com.github.os72.protobuf360.CodedOutputStream
@@ -243,6 +326,16 @@ private static final long serialVersionUID = 0L;
     if (timestamp_ != 0L) {
       size += com.github.os72.protobuf360.CodedOutputStream
         .computeInt64Size(4, timestamp_);
+    }
+    for (java.util.Map.Entry<java.lang.String, com.github.os72.protobuf360.ByteString> entry
+         : internalGetAttributes().getMap().entrySet()) {
+      com.github.os72.protobuf360.MapEntry<java.lang.String, com.github.os72.protobuf360.ByteString>
+      attributes__ = AttributesDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.github.os72.protobuf360.CodedOutputStream
+          .computeMessageSize(5, attributes__);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -267,6 +360,8 @@ private static final long serialVersionUID = 0L;
     result = result && operation_ == other.operation_;
     result = result && (getTimestamp()
         == other.getTimestamp());
+    result = result && internalGetAttributes().equals(
+        other.internalGetAttributes());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -287,6 +382,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
     hash = (53 * hash) + com.github.os72.protobuf360.Internal.hashLong(
         getTimestamp());
+    if (!internalGetAttributes().getMap().isEmpty()) {
+      hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAttributes().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -394,6 +493,28 @@ private static final long serialVersionUID = 0L;
       return org.jmotor.metral.dto.MetralMessages.internal_static_org_jmotor_metral_dto_FireChanged_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.github.os72.protobuf360.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetAttributes();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.github.os72.protobuf360.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 5:
+          return internalGetMutableAttributes();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -422,12 +543,13 @@ private static final long serialVersionUID = 0L;
       super.clear();
       entity_ = "";
 
-      identity_ = "";
+      identity_ = com.github.os72.protobuf360.ByteString.EMPTY;
 
       operation_ = 0;
 
       timestamp_ = 0L;
 
+      internalGetMutableAttributes().clear();
       return this;
     }
 
@@ -454,10 +576,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public org.jmotor.metral.dto.FireChanged buildPartial() {
       org.jmotor.metral.dto.FireChanged result = new org.jmotor.metral.dto.FireChanged(this);
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       result.entity_ = entity_;
       result.identity_ = identity_;
       result.operation_ = operation_;
       result.timestamp_ = timestamp_;
+      result.attributes_ = internalGetAttributes();
+      result.attributes_.makeImmutable();
+      result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
     }
@@ -510,9 +637,8 @@ private static final long serialVersionUID = 0L;
         entity_ = other.entity_;
         onChanged();
       }
-      if (!other.getIdentity().isEmpty()) {
-        identity_ = other.identity_;
-        onChanged();
+      if (other.getIdentity() != com.github.os72.protobuf360.ByteString.EMPTY) {
+        setIdentity(other.getIdentity());
       }
       if (other.operation_ != 0) {
         setOperationValue(other.getOperationValue());
@@ -520,6 +646,8 @@ private static final long serialVersionUID = 0L;
       if (other.getTimestamp() != 0L) {
         setTimestamp(other.getTimestamp());
       }
+      internalGetMutableAttributes().mergeFrom(
+          other.internalGetAttributes());
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -548,6 +676,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object entity_ = "";
     /**
@@ -618,43 +747,17 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object identity_ = "";
+    private com.github.os72.protobuf360.ByteString identity_ = com.github.os72.protobuf360.ByteString.EMPTY;
     /**
-     * <code>string identity = 2;</code>
+     * <code>bytes identity = 2;</code>
      */
-    public java.lang.String getIdentity() {
-      java.lang.Object ref = identity_;
-      if (!(ref instanceof java.lang.String)) {
-        com.github.os72.protobuf360.ByteString bs =
-            (com.github.os72.protobuf360.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        identity_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public com.github.os72.protobuf360.ByteString getIdentity() {
+      return identity_;
     }
     /**
-     * <code>string identity = 2;</code>
+     * <code>bytes identity = 2;</code>
      */
-    public com.github.os72.protobuf360.ByteString
-        getIdentityBytes() {
-      java.lang.Object ref = identity_;
-      if (ref instanceof String) {
-        com.github.os72.protobuf360.ByteString b = 
-            com.github.os72.protobuf360.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        identity_ = b;
-        return b;
-      } else {
-        return (com.github.os72.protobuf360.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string identity = 2;</code>
-     */
-    public Builder setIdentity(
-        java.lang.String value) {
+    public Builder setIdentity(com.github.os72.protobuf360.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
@@ -664,25 +767,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string identity = 2;</code>
+     * <code>bytes identity = 2;</code>
      */
     public Builder clearIdentity() {
       
       identity_ = getDefaultInstance().getIdentity();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string identity = 2;</code>
-     */
-    public Builder setIdentityBytes(
-        com.github.os72.protobuf360.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      identity_ = value;
       onChanged();
       return this;
     }
@@ -755,6 +844,129 @@ private static final long serialVersionUID = 0L;
       
       timestamp_ = 0L;
       onChanged();
+      return this;
+    }
+
+    private com.github.os72.protobuf360.MapField<
+        java.lang.String, com.github.os72.protobuf360.ByteString> attributes_;
+    private com.github.os72.protobuf360.MapField<java.lang.String, com.github.os72.protobuf360.ByteString>
+    internalGetAttributes() {
+      if (attributes_ == null) {
+        return com.github.os72.protobuf360.MapField.emptyMapField(
+            AttributesDefaultEntryHolder.defaultEntry);
+      }
+      return attributes_;
+    }
+    private com.github.os72.protobuf360.MapField<java.lang.String, com.github.os72.protobuf360.ByteString>
+    internalGetMutableAttributes() {
+      onChanged();;
+      if (attributes_ == null) {
+        attributes_ = com.github.os72.protobuf360.MapField.newMapField(
+            AttributesDefaultEntryHolder.defaultEntry);
+      }
+      if (!attributes_.isMutable()) {
+        attributes_ = attributes_.copy();
+      }
+      return attributes_;
+    }
+
+    public int getAttributesCount() {
+      return internalGetAttributes().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public boolean containsAttributes(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetAttributes().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAttributesMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> getAttributes() {
+      return getAttributesMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> getAttributesMap() {
+      return internalGetAttributes().getMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public com.github.os72.protobuf360.ByteString getAttributesOrDefault(
+        java.lang.String key,
+        com.github.os72.protobuf360.ByteString defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> map =
+          internalGetAttributes().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public com.github.os72.protobuf360.ByteString getAttributesOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> map =
+          internalGetAttributes().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    public Builder clearAttributes() {
+      internalGetMutableAttributes().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public Builder removeAttributes(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableAttributes().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString>
+    getMutableAttributes() {
+      return internalGetMutableAttributes().getMutableMap();
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+    public Builder putAttributes(
+        java.lang.String key,
+        com.github.os72.protobuf360.ByteString value) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      if (value == null) { throw new java.lang.NullPointerException(); }
+      internalGetMutableAttributes().getMutableMap()
+          .put(key, value);
+      return this;
+    }
+    /**
+     * <code>map&lt;string, bytes&gt; attributes = 5;</code>
+     */
+
+    public Builder putAllAttributes(
+        java.util.Map<java.lang.String, com.github.os72.protobuf360.ByteString> values) {
+      internalGetMutableAttributes().getMutableMap()
+          .putAll(values);
       return this;
     }
     @java.lang.Override

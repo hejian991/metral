@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch
 
 import com.google.common.eventbus.{ EventBus, Subscribe }
 import com.google.common.primitives.{ Ints, Longs }
-import com.google.protobuf.ByteString
+import com.github.os72.protobuf360.ByteString
 import com.typesafe.config.ConfigFactory
 import org.jmotor.metral.api.{ Acknowledge, MessageHandler }
 import org.jmotor.metral.client.ExchangeType

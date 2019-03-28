@@ -20,6 +20,11 @@ public final class MetralMessages {
     com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_jmotor_metral_dto_FireChanged_fieldAccessorTable;
   static final com.github.os72.protobuf360.Descriptors.Descriptor
+    internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_descriptor;
+  static final 
+    com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_fieldAccessorTable;
+  static final com.github.os72.protobuf360.Descriptors.Descriptor
     internal_static_org_jmotor_metral_dto_Message_descriptor;
   static final 
     com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable
@@ -34,13 +39,16 @@ public final class MetralMessages {
   static {
     java.lang.String[] descriptorData = {
       "\n\016messages.proto\022\025org.jmotor.metral.dto\"" +
-      "w\n\013FireChanged\022\016\n\006entity\030\001 \001(\t\022\020\n\010identi" +
-      "ty\030\002 \001(\t\0223\n\toperation\030\003 \001(\0162 .org.jmotor" +
-      ".metral.dto.Operation\022\021\n\ttimestamp\030\004 \001(\003" +
-      "\"5\n\007Message\022\n\n\002id\030\001 \001(\t\022\r\n\005topic\030\002 \001(\t\022\017" +
-      "\n\007payload\030\003 \001(\014*/\n\tOperation\022\n\n\006CREATE\020\000" +
-      "\022\n\n\006DELETE\020\001\022\n\n\006MODIFY\020\002B)\n\025org.jmotor.m" +
-      "etral.dtoB\016MetralMessagesP\001b\006proto3"
+      "\362\001\n\013FireChanged\022\016\n\006entity\030\001 \001(\t\022\020\n\010ident" +
+      "ity\030\002 \001(\014\0223\n\toperation\030\003 \001(\0162 .org.jmoto" +
+      "r.metral.dto.Operation\022\021\n\ttimestamp\030\004 \001(" +
+      "\003\022F\n\nattributes\030\005 \003(\01322.org.jmotor.metra" +
+      "l.dto.FireChanged.AttributesEntry\0321\n\017Att" +
+      "ributesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014" +
+      ":\0028\001\"5\n\007Message\022\n\n\002id\030\001 \001(\t\022\r\n\005topic\030\002 \001" +
+      "(\t\022\017\n\007payload\030\003 \001(\014*/\n\tOperation\022\n\n\006CREA" +
+      "TE\020\000\022\n\n\006DELETE\020\001\022\n\n\006MODIFY\020\002B)\n\025org.jmot" +
+      "or.metral.dtoB\016MetralMessagesP\001b\006proto3"
     };
     com.github.os72.protobuf360.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.github.os72.protobuf360.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -59,7 +67,13 @@ public final class MetralMessages {
     internal_static_org_jmotor_metral_dto_FireChanged_fieldAccessorTable = new
       com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_jmotor_metral_dto_FireChanged_descriptor,
-        new java.lang.String[] { "Entity", "Identity", "Operation", "Timestamp", });
+        new java.lang.String[] { "Entity", "Identity", "Operation", "Timestamp", "Attributes", });
+    internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_descriptor =
+      internal_static_org_jmotor_metral_dto_FireChanged_descriptor.getNestedTypes().get(0);
+    internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_fieldAccessorTable = new
+      com.github.os72.protobuf360.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_jmotor_metral_dto_FireChanged_AttributesEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
     internal_static_org_jmotor_metral_dto_Message_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_jmotor_metral_dto_Message_fieldAccessorTable = new
